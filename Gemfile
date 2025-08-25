@@ -1,11 +1,8 @@
 source "https://rubygems.org"
 
-gem "sinatra", "~>3.1"
-gem "thin"
+gem "thor"
 
 group :test do
-  gem "rack-test"
-  gem "rest-client"
   gem "rspec"
   gem "rspec_junit_formatter"
   gem "rspec-retry"

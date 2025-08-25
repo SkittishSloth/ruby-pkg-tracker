@@ -2,20 +2,36 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  channel = "stable-25.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.ruby
     pkgs.bundler
     pkgs.gcc
     pkgs.gnumake
+    
+    pkgs.solargraph
+
+    pkgs.zsh
+    pkgs.bat
+    pkgs.gh
+    pkgs.tree
+
+    pkgs.chezmoi
+
+    pkgs.getopt
+
+    pkgs.apt
+    pkgs.ps
   ];
   # Sets environment variables in the workspace
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      "Shopify.ruby-lsp"
+      "castwide.solargraph"
+      "rebornix.ruby"
+      "wingrunr21.vscode-ruby"
     ];
     workspace = {
       # Runs when a workspace is first created
@@ -26,7 +42,7 @@
       };
       # Runs when a workspace is (re)started
       onStart= {
-        run-server = "bundle exec rerun 'ruby app.rb'";
+        # run-server = "bundle exec rerun 'ruby app.rb'";
       };
     };
   };
